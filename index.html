@@ -115,6 +115,75 @@
   .card li { margin-bottom: 6px; }
   .card .pro { color: #1a7a4c; }
   .card .con { color: #b04a2a; }
+  .relevance {
+    background: #eef4f9;
+    border-radius: 4px;
+    padding: 8px 10px;
+    font-size: 12.5px;
+    margin: 10px 0 0 0;
+    color: #2a3f52;
+  }
+  .relevance b { color: var(--navy); }
+  .scope-flag {
+    display: inline-block;
+    background: #f7ecec;
+    color: #a33a3a;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 3px;
+    margin-bottom: 8px;
+  }
+  .leitfragen {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .leitfrage {
+    display: flex;
+    gap: 14px;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--line);
+  }
+  .leitfrage:last-child { border-bottom: none; }
+  .leitfrage .qnum {
+    flex-shrink: 0;
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: var(--bg-soft);
+    color: var(--blue);
+    font-weight: 800;
+    font-size: 12px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .leitfrage .q { font-weight: 700; color: var(--navy); font-size: 14.5px; margin-bottom: 3px; }
+  .leitfrage .a { font-size: 13.5px; color: var(--muted); }
+
+  .horizon-box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  @media (max-width: 720px) {
+    .horizon-box { grid-template-columns: 1fr; }
+  }
+  .horizon-col {
+    background: #fff;
+    border: 1px solid #cbe6da;
+    border-radius: 6px;
+    padding: 14px 16px;
+  }
+  .horizon-col .h-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-weight: 800;
+    color: #1a7a4c;
+    margin-bottom: 8px;
+  }
+  .horizon-col ul { margin: 0; padding-left: 16px; font-size: 13.5px; }
+  .horizon-col li { margin-bottom: 6px; }
   .source-link {
     margin-top: 12px;
     padding-top: 10px;
@@ -235,7 +304,53 @@
   </div>
 
   <section>
-    <h2><span class="num">1</span>Zwei Ebenen, eine Entscheidung</h2>
+    <h2><span class="num">1</span>Leitfragen fürs Beratungsgespräch</h2>
+    <div class="leitfragen">
+      <div class="leitfrage">
+        <div class="qnum">1</div>
+        <div>
+          <div class="q">Auf welcher Verwaltungsebene ist der Kunde – Bund, Land oder Kommune?</div>
+          <div class="a">Bundesclient ist ausschließlich für Bundesbehörden relevant. Länder/Kommunen haben
+          eigene Client-Standards – Abschnitt 2 dann überspringen.</div>
+        </div>
+      </div>
+      <div class="leitfrage">
+        <div class="qnum">2</div>
+        <div>
+          <div class="q">Welchen Schutzbedarf haben die zu verarbeitenden Daten?</div>
+          <div class="a">Normal: M365 Public Cloud bleibt vertretbar. Hoch/VS-NfD: Richtung Delos Cloud oder
+          openDesk – das ist der stärkste Hebel für die Empfehlung.</div>
+        </div>
+      </div>
+      <div class="leitfrage">
+        <div class="qnum">3</div>
+        <div>
+          <div class="q">Ist M365 bereits produktiv im Einsatz?</div>
+          <div class="a">Ja: Delos Cloud ist der nutzernähere Migrationspfad (gleiche Technologie). Nein/Neuaufbau:
+          openDesk gehört gleichwertig auf die Shortlist.</div>
+        </div>
+      </div>
+      <div class="leitfrage">
+        <div class="qnum">4</div>
+        <div>
+          <div class="q">Wie eng ist der Zeithorizont?</div>
+          <div class="a">Sofortbedarf: nur M365 oder Bestandslösung sind heute wirklich verfügbar. Delos Cloud
+          und openDesk sind mittelfristige Optionen (laufender Rollout).</div>
+        </div>
+      </div>
+      <div class="leitfrage">
+        <div class="qnum">5</div>
+        <div>
+          <div class="q">Gibt es politische/strategische Vorgaben zur digitalen Souveränität?</div>
+          <div class="a">Kabinetts- oder Landtagsbeschlüsse können die Entscheidung präjudizieren – unabhängig
+          von Wirtschaftlichkeit oder Funktionsumfang. Immer zuerst abfragen.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">2</span>Zwei Ebenen, eine Entscheidung</h2>
     <div class="lead">
       Bundesclient und Kollaborationssuite sind <b>keine Alternativen, sondern unterschiedliche Ebenen</b> des
       digitalen Arbeitsplatzes: Ebene&nbsp;1 liefert die standardisierte Geräte- und Zugriffsschicht. Darauf läuft
@@ -246,9 +361,10 @@
   </section>
 
   <section>
-    <h2><span class="num">2</span>Ebene 1 – Die Basis: Bundesclient</h2>
+    <h2><span class="num">3</span>Ebene 1 – Die Basis: Bundesclient</h2>
     <div class="cards" style="grid-template-columns: 1fr;">
       <div class="card client">
+        <div class="scope-flag">Gilt nur für Bundesbehörden</div>
         <div class="tag">Client-Architektur</div>
         <h3>Bundesclient</h3>
         <p>Standardisierte IT-Arbeitsplatzarchitektur des Bundes, verantwortet u.&nbsp;a. durch das ITZBund im
@@ -260,13 +376,16 @@
           <li class="con">Kein Ersatz für eine Kollaborationssuite – bildet nur die Basisschicht (OS,
           Gerätemanagement, Zugriff)</li>
         </ul>
+        <div class="relevance"><b>Beratungsrelevanz:</b> Bei Landes-/Kommunalkunden entfällt dieser Punkt komplett
+        – dort keine Zeit im Gespräch investieren. Bei Bundeskunden: Client-Standardisierung und
+        Suite-Entscheidung sind getrennte Projektstränge, können parallel laufen.</div>
         <div class="source-link">Quelle &amp; mehr: <a href="https://www.itzbund.de" target="_blank" rel="noopener">itzbund.de</a></div>
       </div>
     </div>
   </section>
 
   <section>
-    <h2><span class="num">3</span>Ebene 2 – Die Kollaborationssuite: drei Optionen</h2>
+    <h2><span class="num">4</span>Ebene 2 – Die Kollaborationssuite: drei Optionen</h2>
     <div class="cards">
       <div class="card">
         <div class="tag">Marktstandard</div>
@@ -279,6 +398,9 @@
           <li class="con">Datenverarbeitung/-zugriff potenziell CLOUD-Act-exponiert – für höhere Schutzbedarfe
           kritisch</li>
         </ul>
+        <div class="relevance"><b>Beratungsrelevanz:</b> Standardantwort bei normalem Schutzbedarf und laufendem
+        Betrieb. Wird schwierig zu vertreten, sobald der Kunde selbst „hoher Schutzbedarf" oder eine
+        Souveränitätsstrategie ins Gespräch bringt – dann aktiv auf Delos Cloud/openDesk überleiten.</div>
         <div class="source-link">Quelle &amp; mehr: <a href="https://www.microsoft.com/de-de/microsoft-365/enterprise/office-365-plans-and-pricing" target="_blank" rel="noopener">microsoft.com – Pläne &amp; Preise</a></div>
       </div>
       <div class="card sovereign">
@@ -291,6 +413,10 @@
           <li class="pro">Technisch/operativ/rechtlich von Microsoft getrennt</li>
           <li class="con">Rollout/Zertifizierung (u.&nbsp;a. VS-NfD) noch im Aufbau</li>
         </ul>
+        <div class="relevance"><b>Beratungsrelevanz:</b> Der naheliegende Vorschlag für Kunden, die schon mit M365
+        arbeiten und Souveränität brauchen, ohne Nutzeroberfläche/Trainings neu aufzusetzen. Offener Punkt im
+        Gespräch: Verfügbarkeitstermin und Endkundenpreis sind noch nicht verbindlich zugesagt – als
+        Erwartungsmanagement klar benennen.</div>
         <div class="source-link">Quelle &amp; mehr: <a href="https://news.microsoft.com/de-de/erste-souveraene-cloud-plattform-fuer-die-deutsche-verwaltung-auf-der-zielgeraden/" target="_blank" rel="noopener">news.microsoft.com – Pressemitteilung</a></div>
       </div>
       <div class="card sovereign">
@@ -303,13 +429,16 @@
           <li class="pro">Lizenzkostenfrei (Apache 2.0)</li>
           <li class="con">Geringere Funktionsreife/Nutzerakzeptanz als M365, höherer Change-Management-Aufwand</li>
         </ul>
+        <div class="relevance"><b>Beratungsrelevanz:</b> Passt zu Kunden mit hohem Schutzbedarf, klarem
+        Open-Source-Mandat oder Neuaufbau ohne M365-Historie. Erwartungsmanagement: Nutzerakzeptanz und
+        Change-Aufwand realistisch adressieren, sonst drohen Akzeptanzprobleme im Rollout.</div>
         <div class="source-link">Quelle &amp; mehr: <a href="https://www.opendesk.eu/" target="_blank" rel="noopener">opendesk.eu</a></div>
       </div>
     </div>
   </section>
 
   <section>
-    <h2><span class="num">4</span>Vergleich der Kollaborations-Varianten</h2>
+    <h2><span class="num">5</span>Vergleich der Kollaborations-Varianten</h2>
     <div class="table-scroll">
     <table class="compare">
       <tr>
@@ -351,7 +480,7 @@
   </section>
 
   <section class="pricing-box">
-    <h2><span class="num" style="background:#8a7638;">€</span>Pricing-Indikation (Orientierungswerte)</h2>
+    <h2><span class="num" style="background:#8a7638;">6</span>Pricing-Indikation (Orientierungswerte)</h2>
     <div class="price-grid">
       <div class="price-col">
         <div class="label">M365 E3 (List, Jahresabo)</div>
@@ -365,9 +494,9 @@
       </div>
       <div class="price-col">
         <div class="label">Delos Cloud</div>
-        <div class="value">n.&nbsp;v.</div>
-        <div class="note">Abo-Modell analog M365 erwartet; Endkundenpreise noch nicht flächendeckend
-        veröffentlicht</div>
+        <div class="value">Offener Punkt</div>
+        <div class="note">Abo-Modell analog M365 erwartet, aber noch nicht flächendeckend beziffert – im
+        Kundengespräch aktiv als offenes Thema markieren, nicht verschweigen</div>
       </div>
       <div class="price-col">
         <div class="label">openDesk</div>
@@ -386,21 +515,37 @@
   </section>
 
   <section class="callout">
-    <h2><span class="num" style="background:#1a7a4c;">✓</span>Einordnung für die Praxis</h2>
-    <ol>
-      <li><b>Schutzbedarf zuerst klären:</b> Datenklassifizierung entscheidet, ob Public-Cloud-M365 zulässig ist
-      oder eine souveräne Variante erforderlich wird.</li>
-      <li><b>Bundesclient unabhängig planen:</b> Die Standardisierung der Geräteebene kann parallel zur
-      Suite-Entscheidung vorangetrieben werden.</li>
-      <li><b>Parallelbetrieb einkalkulieren:</b> Delos Cloud und openDesk befinden sich im Hochlauf – ein
-      hybrides Zielbild (Teilbereiche M365, Teilbereiche souverän) ist mittelfristig realistisch.</li>
-      <li><b>Kostenbild vervollständigen:</b> Für belastbare Pricing-Aussagen sind Rahmenvertragskonditionen und
-      Betriebskosten-Szenarien in einem Folgeschritt zu ermitteln.</li>
-    </ol>
+    <h2><span class="num" style="background:#1a7a4c;">7</span>Handlungsspielraum: Was ist wann möglich?</h2>
+    <div class="horizon-box">
+      <div class="horizon-col">
+        <div class="h-label">Sofort (0–6 Monate)</div>
+        <ul>
+          <li>M365 Public Cloud weiter nutzen/beschaffen – einzige heute sofort verfügbare Option</li>
+          <li>Schutzbedarfsfeststellung für die eigenen Daten nachholen, falls noch offen</li>
+          <li>Bundesclient-Standardisierung unabhängig davon anstoßen (Bundeskunden)</li>
+        </ul>
+      </div>
+      <div class="horizon-col">
+        <div class="h-label">Mittelfristig (6–18 Monate)</div>
+        <ul>
+          <li>Delos Cloud pilotieren, sobald Rahmenvertrag &amp; Preise vorliegen</li>
+          <li>openDesk in Teilbereichen testen (z.&nbsp;B. unkritische Fachbereiche) statt Big-Bang-Migration</li>
+          <li>Hybrides Zielbild einplanen: Teilbereiche M365, Teilbereiche souverän je nach Schutzbedarf</li>
+        </ul>
+      </div>
+      <div class="horizon-col">
+        <div class="h-label">Vertraglich absichern</div>
+        <ul>
+          <li>Laufzeiten kurz halten / Ausstiegsklauseln verhandeln, um Lock-in zu vermeiden</li>
+          <li>Datenexport- &amp; Interoperabilitätsstandards vertraglich festschreiben</li>
+          <li>Migrationsoption zu Delos Cloud/openDesk als Vertragsbestandteil bei neuen M365-Verträgen prüfen</li>
+        </ul>
+      </div>
+    </div>
   </section>
 
   <section>
-    <h2><span class="num">5</span>Quellen &amp; weiterführende Informationen</h2>
+    <h2><span class="num">8</span>Quellen &amp; weiterführende Informationen</h2>
     <div class="sources-grid">
       <div class="source-group">
         <div class="source-group-title">Bundesclient / ITZBund</div>
