@@ -9,18 +9,30 @@
 <link href="https://fonts.googleapis.com/css2?family=Carlito:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 <style>
   :root {
-    /* Farbschema aus farben.thmx (Custom Theme) */
-    --navy: #004B65;      /* accent2 */
-    --blue: #03878A;      /* accent1 */
-    --teal: #647D2D;      /* accent5 – für "souverän"-Karten */
-    --purple: #5F1937;    /* accent6 – für Bundesclient-Karte */
-    --olive: #AAB414;     /* accent3 – für Pricing-Box */
-    --red: #E60032;       /* accent4 – für "con"-Punkte */
-    --green: #647D2D;     /* accent5 – für "pro"-Punkte */
+    /* Offizielle Farbpalette */
+    --petrol: #03878A;
+    --gelb: #FFD100;
+    --dunkelblau: #004B65;
+    --gruen: #AAB414;
+    --dunkelgruen: #647D2D;
+    --rot: #E60032;
+    --dunkelrot: #5F1937;
+    --dunkelgrau: #707070;
+    --mittelgrau: #B2B2B2;
+    --hellgrau: #F2F2F2;
+
+    /* Rollen-Mapping */
+    --navy: var(--dunkelblau);
+    --blue: var(--petrol);
+    --teal: var(--gruen);       /* Rahmen "souverän"-Karten */
+    --purple: var(--dunkelrot); /* Bundesclient-Karte */
+    --olive: var(--gelb);       /* Pricing-Box-Akzent */
+    --red: var(--rot);
+    --green: var(--dunkelgruen);
     --ink: #201f1f;
-    --muted: #707070;     /* dk2 */
-    --line: #e4e4e4;      /* lt2 */
-    --bg-soft: #e5f3f3;   /* Tint von accent1 */
+    --muted: var(--dunkelgrau);
+    --line: var(--mittelgrau);
+    --bg-soft: var(--hellgrau);
   }
   * { box-sizing: border-box; }
   body {
@@ -48,7 +60,7 @@
   }
   .subtitle {
     font-size: 18px;
-    color: #598a9a;
+    color: var(--petrol);
     margin: 0 0 24px 0;
     font-weight: 500;
   }
@@ -123,7 +135,7 @@
   .card .pro { color: var(--green); }
   .card .con { color: var(--red); }
   .relevance {
-    background: #eaf0f2;
+    background: var(--hellgrau);
     border-radius: 4px;
     padding: 8px 10px;
     font-size: 12.5px;
@@ -133,7 +145,7 @@
   .relevance b { color: var(--navy); }
   .scope-flag {
     display: inline-block;
-    background: #fce5ea;
+    background: var(--hellgrau);
     color: var(--red);
     font-size: 11px;
     font-weight: 700;
@@ -177,7 +189,7 @@
   }
   .horizon-col {
     background: #fff;
-    border: 1px solid #c8d1b5;
+    border: 1px solid var(--mittelgrau);
     border-radius: 6px;
     padding: 14px 16px;
   }
@@ -220,13 +232,14 @@
     border-bottom: 1px solid var(--line);
     vertical-align: top;
   }
-  table.compare tr:nth-child(even) td { background: #f4f7f8; }
+  table.compare tr:nth-child(even) td { background: var(--hellgrau); }
   table.compare td.criterion { font-weight: 700; color: var(--navy); width: 18%; }
   .table-scroll { overflow-x: auto; }
 
   .pricing-box {
-    background: #f9faf0;
-    border: 1px solid #e1e4ac;
+    background: var(--hellgrau);
+    border: 1px solid var(--mittelgrau);
+    border-top: 4px solid var(--gelb);
     border-radius: 6px;
     padding: 20px 22px;
   }
@@ -243,18 +256,21 @@
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 0.04em;
-    color: #5d630b;
+    color: var(--dunkelblau);
     font-weight: 700;
     margin-bottom: 4px;
+    min-height: 30px;
+    display: flex;
+    align-items: flex-end;
   }
   .price-col .value { font-size: 24px; font-weight: 800; color: var(--navy); }
   .price-col .value span { font-size: 13px; font-weight: 500; }
   .price-col .note { font-size: 12px; color: var(--muted); margin-top: 4px; }
-  .footnote { font-size: 12px; color: #7e7e7e; margin-top: 14px; line-height: 1.5; }
+  .footnote { font-size: 12px; color: var(--dunkelgrau); margin-top: 14px; line-height: 1.5; }
 
   .callout {
-    background: #eff2ea;
-    border: 1px solid #c8d1b5;
+    background: var(--hellgrau);
+    border: 1px solid var(--mittelgrau);
     border-radius: 6px;
     padding: 20px 22px;
   }
@@ -286,7 +302,7 @@
     padding-top: 16px;
     border-top: 1px solid var(--line);
     font-size: 12.5px;
-    color: #939393;
+    color: var(--dunkelgrau);
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -499,7 +515,7 @@
   </section>
 
   <section class="pricing-box">
-    <h2><span class="num" style="background:#5d630b;">6</span>Pricing-Indikation (Orientierungswerte)</h2>
+    <h2><span class="num" style="background:var(--dunkelblau);">6</span>Pricing-Indikation (Orientierungswerte)</h2>
     <div class="price-grid">
       <div class="price-col">
         <div class="label">Office 365 E3 (Kollaboration)</div>
