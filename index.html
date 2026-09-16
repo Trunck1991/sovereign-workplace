@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Souveräner Arbeitsplatz in der öffentlichen Verwaltung</title>
+<style>
+  :root {
+    --navy: #0b2d4d;
+    --blue: #1a6fa8;
+    --teal: #3fb6a8;
+    --purple: #8b6fc9;
+    --ink: #1c2b3a;
+    --muted: #5a6b78;
+    --line: #dce5ec;
+    --bg-soft: #f2f6f9;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    color: var(--ink);
+    line-height: 1.55;
+    margin: 0;
+    background: #fff;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 40px 24px 80px; }
+  .kicker {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #8a97a3;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  h1 {
+    font-size: clamp(28px, 4vw, 38px);
+    margin: 0 0 8px 0;
+    color: var(--navy);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+  }
+  .subtitle {
+    font-size: 18px;
+    color: #3c5b73;
+    margin: 0 0 24px 0;
+    font-weight: 500;
+  }
+  .header-rule {
+    height: 4px;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--blue) 55%, var(--teal) 100%);
+    margin-bottom: 28px;
+    border-radius: 3px;
+  }
+  .lead {
+    background: var(--bg-soft);
+    border-left: 4px solid var(--blue);
+    padding: 16px 20px;
+    margin-bottom: 32px;
+    border-radius: 0 6px 6px 0;
+  }
+  .lead b { color: var(--navy); }
+  h2 {
+    font-size: 22px;
+    color: var(--navy);
+    margin: 0 0 16px 0;
+    font-weight: 800;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  h2 .num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--navy);
+    color: #fff;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+  section { margin-bottom: 40px; }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  @media (max-width: 720px) {
+    .cards { grid-template-columns: 1fr; }
+  }
+  .card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-top: 4px solid var(--blue);
+    border-radius: 6px;
+    padding: 18px 18px 20px;
+  }
+  .card.sovereign { border-top-color: var(--teal); }
+  .card.client { border-top-color: var(--purple); }
+  .card h3 { font-size: 16px; margin: 0 0 6px 0; color: var(--navy); font-weight: 800; }
+  .card .tag {
+    display: inline-block;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #8a97a3;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .card p { margin: 0 0 10px 0; font-size: 14.5px; }
+  .card ul { margin: 0; padding-left: 18px; font-size: 14px; }
+  .card li { margin-bottom: 6px; }
+  .card .pro { color: #1a7a4c; }
+  .card .con { color: #b04a2a; }
+
+  table.compare {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  table.compare th {
+    background: var(--navy);
+    color: #fff;
+    text-align: left;
+    padding: 10px 12px;
+    font-weight: 700;
+    font-size: 13.5px;
+  }
+  table.compare td {
+    padding: 12px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  table.compare tr:nth-child(even) td { background: #f7fafc; }
+  table.compare td.criterion { font-weight: 700; color: var(--navy); width: 18%; }
+  .table-scroll { overflow-x: auto; }
+
+  .pricing-box {
+    background: #fbf8ef;
+    border: 1px solid #e8dcae;
+    border-radius: 6px;
+    padding: 20px 22px;
+  }
+  .pricing-box h2 { border: none; padding: 0; margin-bottom: 14px; }
+  .price-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+  @media (max-width: 720px) {
+    .price-grid { grid-template-columns: 1fr 1fr; }
+  }
+  .price-col .label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #8a7638;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .price-col .value { font-size: 24px; font-weight: 800; color: var(--navy); }
+  .price-col .value span { font-size: 13px; font-weight: 500; }
+  .price-col .note { font-size: 12px; color: var(--muted); margin-top: 4px; }
+  .footnote { font-size: 12px; color: #8291a0; margin-top: 14px; line-height: 1.5; }
+
+  .callout {
+    background: #eef7f3;
+    border: 1px solid #cbe6da;
+    border-radius: 6px;
+    padding: 20px 22px;
+  }
+  .callout h2 { border: none; padding: 0; margin-bottom: 14px; }
+  .callout ol { margin: 0; padding-left: 20px; }
+  .callout li { margin-bottom: 10px; }
+
+  footer {
+    margin-top: 48px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+    font-size: 12.5px;
+    color: #9aa8b4;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="kicker">Handout · Entwurf v0.1</div>
+  <h1>Souveräner Arbeitsplatz in der öffentlichen Verwaltung</h1>
+  <div class="subtitle">Microsoft 365, Bundesclient und souveräne Varianten im Überblick</div>
+  <div class="header-rule"></div>
+
+  <div class="lead">
+    <b>Worum es geht:</b> Der digitale Arbeitsplatz der Verwaltung steht zwischen zwei Polen – dem etablierten
+    Funktionsumfang von Microsoft 365 und dem Anspruch an digitale Souveränität (Datenhoheit, Betriebssicherheit,
+    Unabhängigkeit von US-Anbietern gemäß CLOUD Act). Die Deutsche Verwaltungscloud-Strategie (DVS) setzt dabei
+    auf einen Multi-Cloud-Ansatz: mehrere Betriebsmodelle stehen nebeneinander, die je nach Schutzbedarf
+    kombiniert werden.
+  </div>
+
+  <section>
+    <h2><span class="num">1</span>Die drei Bausteine des digitalen Arbeitsplatzes</h2>
+    <div class="cards">
+      <div class="card client">
+        <div class="tag">Client-Architektur</div>
+        <h3>Bundesclient</h3>
+        <p>Standardisierte IT-Arbeitsplatzarchitektur des Bundes (verantwortet u.&nbsp;a. durch ITZBund/BMI).
+        Definiert einheitliche Hard-/Software-Pakete und Betriebsprozesse für Bundesbehörden.</p>
+        <ul>
+          <li class="pro">Standardisierung senkt Betriebs- &amp; Supportkosten</li>
+          <li class="pro">Einheitlicher Zugriff auf Querschnitts- &amp; Fachverfahren</li>
+          <li class="con">Kein Ersatz für eine Kollaborationssuite – bildet nur die Basisschicht (OS,
+          Gerätemanagement, Zugriff)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="tag">Marktstandard</div>
+        <h3>Microsoft 365 (Public Cloud)</h3>
+        <p>Kollaborations- und Produktivitätssuite (Word, Excel, Teams, Exchange Online etc.), Betrieb in der
+        globalen Microsoft-Cloud.</p>
+        <ul>
+          <li class="pro">Höchster Funktions- und Integrationsgrad, breite Nutzerakzeptanz</li>
+          <li class="pro">Schnelle Verfügbarkeit, etablierte Betriebsprozesse</li>
+          <li class="con">Datenverarbeitung/-zugriff potenziell CLOUD-Act-exponiert – für höhere Schutzbedarfe
+          kritisch</li>
+        </ul>
+      </div>
+      <div class="card sovereign">
+        <div class="tag">Souveräne Alternativen</div>
+        <h3>Delos Cloud &amp; openDesk</h3>
+        <p><b>Delos Cloud:</b> M365-Technologie auf souverän betriebener Infrastruktur in Deutschland (Delos Cloud
+        GmbH/Arvato/Microsoft als Technologielieferant).<br>
+        <b>openDesk:</b> Open-Source-Suite von ZenDiS als vollständige M365-Alternative.</p>
+        <ul>
+          <li class="pro">Datenhaltung &amp; Betrieb in DE, BSI-Anforderungen adressiert</li>
+          <li class="con">Delos Cloud: Rollout/Zertifizierung (u.&nbsp;a. VS-NfD) noch im Aufbau</li>
+          <li class="con">openDesk: geringere Funktionsreife/Nutzerakzeptanz als M365</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">2</span>Einordnung: Wie hängen die drei Bausteine zusammen?</h2>
+    <div class="lead" style="margin-bottom:0;">
+      Bundesclient und Kollaborationssuite sind <b>keine Alternativen, sondern unterschiedliche Ebenen</b>: Der
+      Bundesclient liefert die standardisierte Geräte- und Zugriffsschicht: darauf läuft entweder Microsoft 365,
+      Delos Cloud oder openDesk als Produktivitäts- und Kollaborationsebene. Die Entscheidung für eine Variante
+      ist primär eine Frage des Schutzbedarfs der Daten, nicht des Endgeräts.
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">3</span>Vergleich der Kollaborations-Varianten</h2>
+    <div class="table-scroll">
+    <table class="compare">
+      <tr>
+        <th>Kriterium</th>
+        <th>Microsoft&nbsp;365 (Public Cloud)</th>
+        <th>Delos Cloud</th>
+        <th>openDesk (ZenDiS)</th>
+      </tr>
+      <tr>
+        <td class="criterion">Souveränität / Datenhaltung</td>
+        <td>Global verteilte Microsoft-Cloud; Zugriffs-/Herausgaberisiko durch US CLOUD Act</td>
+        <td>Datenhaltung &amp; Betrieb ausschließlich in DE; technisch/operativ/rechtlich von Microsoft getrennt</td>
+        <td>Vollständig europäisches Open-Source-Stack; Betrieb frei wählbar (on-prem oder gehostet in DE/EU)</td>
+      </tr>
+      <tr>
+        <td class="criterion">Funktionsumfang &amp; Reife</td>
+        <td>Sehr hoch, Marktstandard, breites Ökosystem (inkl. Copilot)</td>
+        <td>Vergleichbar mit M365 E3-Umfang; Rollout schrittweise, noch nicht alle Dienste verfügbar</td>
+        <td>Solide Basis (Mail, Office, Chat, Video, Projekt), Modulverbund aus 9 Open-Source-Komponenten;
+        Funktionslücken ggü. M365</td>
+      </tr>
+      <tr>
+        <td class="criterion">Migrations- / Umstellungsaufwand</td>
+        <td>Gering, sofern bereits im Einsatz</td>
+        <td>Mittel – Migration von Public-Cloud-M365 relativ nutzernah, da gleiche Anwendungen</td>
+        <td>Hoch – neue Oberflächen, Change-Management- und Schulungsbedarf, Betriebsverantwortung ggf. bei
+        Behörde/Dienstleister</td>
+      </tr>
+      <tr>
+        <td class="criterion">Verfügbarkeit / Status 2026</td>
+        <td>Produktiv, etabliert</td>
+        <td>Verträge zwischen Delos Cloud, Microsoft und Arvato Systems unterzeichnet; schrittweiser Rollout,
+        Rahmenvertrag mit dem Bund in Vorbereitung</td>
+        <td>Produktiv (Version 1.x), u.&nbsp;a. Rahmenvereinbarung für die Bundeswehr; laufende monatliche
+        Feature-Releases</td>
+      </tr>
+    </table>
+    </div>
+  </section>
+
+  <section class="pricing-box">
+    <h2><span class="num" style="background:#8a7638;">€</span>Pricing-Indikation (Orientierungswerte)</h2>
+    <div class="price-grid">
+      <div class="price-col">
+        <div class="label">M365 E3 (List, Jahresabo)</div>
+        <div class="value">≈ 26 €<span> / Nutzer / Monat</span></div>
+        <div class="note">zzgl. USt. · Commercial-Listenpreis</div>
+      </div>
+      <div class="price-col">
+        <div class="label">M365 E5 (List, Jahresabo)</div>
+        <div class="value">≈ 41 €<span> / Nutzer / Monat</span></div>
+        <div class="note">zzgl. USt. · Commercial-Listenpreis</div>
+      </div>
+      <div class="price-col">
+        <div class="label">Delos Cloud</div>
+        <div class="value">n.&nbsp;v.</div>
+        <div class="note">Abo-Modell analog M365 erwartet; Endkundenpreise noch nicht flächendeckend
+        veröffentlicht</div>
+      </div>
+      <div class="price-col">
+        <div class="label">openDesk</div>
+        <div class="value">0 €<span> Lizenz</span></div>
+        <div class="note">Open Source (Apache 2.0); Kosten entstehen für Betrieb, Hosting, Integration &amp;
+        Support</div>
+      </div>
+    </div>
+    <div class="footnote">
+      Hinweis: Listenpreise dienen nur der Größenordnung. Für Bundes-/Landesbehörden gelten i.&nbsp;d.&nbsp;R.
+      abweichende Konditionen aus Rahmenverträgen (z.&nbsp;B. EVB-IT), die nicht öffentlich beziffert sind.
+      Microsoft hat zudem für Juli 2026 eine Preisanpassung von ca. 9–12&nbsp;% auf viele Commercial- und
+      Government-Pläne angekündigt. Reale Gesamtkosten hängen zusätzlich von Migrations-, Betriebs- und
+      Schulungsaufwänden ab und sind separat zu kalkulieren.
+    </div>
+  </section>
+
+  <section class="callout">
+    <h2><span class="num" style="background:#1a7a4c;">✓</span>Einordnung für die Praxis</h2>
+    <ol>
+      <li><b>Schutzbedarf zuerst klären:</b> Datenklassifizierung entscheidet, ob Public-Cloud-M365 zulässig ist
+      oder eine souveräne Variante erforderlich wird.</li>
+      <li><b>Bundesclient unabhängig planen:</b> Die Standardisierung der Geräteebene kann parallel zur
+      Suite-Entscheidung vorangetrieben werden.</li>
+      <li><b>Parallelbetrieb einkalkulieren:</b> Delos Cloud und openDesk befinden sich im Hochlauf – ein
+      hybrides Zielbild (Teilbereiche M365, Teilbereiche souverän) ist mittelfristig realistisch.</li>
+      <li><b>Kostenbild vervollständigen:</b> Für belastbare Pricing-Aussagen sind Rahmenvertragskonditionen und
+      Betriebskosten-Szenarien in einem Folgeschritt zu ermitteln.</li>
+    </ol>
+  </section>
+
+  <footer>
+    <span>Souveräner Arbeitsplatz – Handout (Entwurf)</span>
+    <span>Stand: September 2026</span>
+  </footer>
+
+</div>
+</body>
+</html>
