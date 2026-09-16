@@ -4,20 +4,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Souveräner Arbeitsplatz in der öffentlichen Verwaltung</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Carlito:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --navy: #0b2d4d;
-    --blue: #1a6fa8;
-    --teal: #3fb6a8;
-    --purple: #8b6fc9;
-    --ink: #1c2b3a;
-    --muted: #5a6b78;
-    --line: #dce5ec;
-    --bg-soft: #f2f6f9;
+    /* Farbschema aus farben.thmx (Custom Theme) */
+    --navy: #004B65;      /* accent2 */
+    --blue: #03878A;      /* accent1 */
+    --teal: #647D2D;      /* accent5 – für "souverän"-Karten */
+    --purple: #5F1937;    /* accent6 – für Bundesclient-Karte */
+    --olive: #AAB414;     /* accent3 – für Pricing-Box */
+    --red: #E60032;       /* accent4 – für "con"-Punkte */
+    --green: #647D2D;     /* accent5 – für "pro"-Punkte */
+    --ink: #201f1f;
+    --muted: #707070;     /* dk2 */
+    --line: #e4e4e4;      /* lt2 */
+    --bg-soft: #e5f3f3;   /* Tint von accent1 */
   }
   * { box-sizing: border-box; }
   body {
-    font-family: -apple-system, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    font-family: Calibri, Carlito, 'Segoe UI', -apple-system, 'Helvetica Neue', Arial, sans-serif;
     color: var(--ink);
     line-height: 1.55;
     margin: 0;
@@ -28,7 +35,7 @@
     font-size: 12px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #8a97a3;
+    color: var(--muted);
     font-weight: 700;
     margin-bottom: 8px;
   }
@@ -41,7 +48,7 @@
   }
   .subtitle {
     font-size: 18px;
-    color: #3c5b73;
+    color: #598a9a;
     margin: 0 0 24px 0;
     font-weight: 500;
   }
@@ -106,28 +113,28 @@
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: #8a97a3;
+    color: var(--muted);
     font-weight: 700;
     margin-bottom: 8px;
   }
   .card p { margin: 0 0 10px 0; font-size: 14.5px; }
   .card ul { margin: 0; padding-left: 18px; font-size: 14px; }
   .card li { margin-bottom: 6px; }
-  .card .pro { color: #1a7a4c; }
-  .card .con { color: #b04a2a; }
+  .card .pro { color: var(--green); }
+  .card .con { color: var(--red); }
   .relevance {
-    background: #eef4f9;
+    background: #eaf0f2;
     border-radius: 4px;
     padding: 8px 10px;
     font-size: 12.5px;
     margin: 10px 0 0 0;
-    color: #2a3f52;
+    color: var(--navy);
   }
   .relevance b { color: var(--navy); }
   .scope-flag {
     display: inline-block;
-    background: #f7ecec;
-    color: #a33a3a;
+    background: #fce5ea;
+    color: var(--red);
     font-size: 11px;
     font-weight: 700;
     padding: 3px 8px;
@@ -170,7 +177,7 @@
   }
   .horizon-col {
     background: #fff;
-    border: 1px solid #cbe6da;
+    border: 1px solid #c8d1b5;
     border-radius: 6px;
     padding: 14px 16px;
   }
@@ -179,7 +186,7 @@
     text-transform: uppercase;
     letter-spacing: 0.04em;
     font-weight: 800;
-    color: #1a7a4c;
+    color: var(--green);
     margin-bottom: 8px;
   }
   .horizon-col ul { margin: 0; padding-left: 16px; font-size: 13.5px; }
@@ -213,21 +220,21 @@
     border-bottom: 1px solid var(--line);
     vertical-align: top;
   }
-  table.compare tr:nth-child(even) td { background: #f7fafc; }
+  table.compare tr:nth-child(even) td { background: #f4f7f8; }
   table.compare td.criterion { font-weight: 700; color: var(--navy); width: 18%; }
   .table-scroll { overflow-x: auto; }
 
   .pricing-box {
-    background: #fbf8ef;
-    border: 1px solid #e8dcae;
+    background: #f9faf0;
+    border: 1px solid #e1e4ac;
     border-radius: 6px;
     padding: 20px 22px;
   }
   .pricing-box h2 { border: none; padding: 0; margin-bottom: 14px; }
   .price-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 18px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px 18px;
   }
   @media (max-width: 720px) {
     .price-grid { grid-template-columns: 1fr 1fr; }
@@ -236,18 +243,18 @@
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 0.04em;
-    color: #8a7638;
+    color: #5d630b;
     font-weight: 700;
     margin-bottom: 4px;
   }
   .price-col .value { font-size: 24px; font-weight: 800; color: var(--navy); }
   .price-col .value span { font-size: 13px; font-weight: 500; }
   .price-col .note { font-size: 12px; color: var(--muted); margin-top: 4px; }
-  .footnote { font-size: 12px; color: #8291a0; margin-top: 14px; line-height: 1.5; }
+  .footnote { font-size: 12px; color: #7e7e7e; margin-top: 14px; line-height: 1.5; }
 
   .callout {
-    background: #eef7f3;
-    border: 1px solid #cbe6da;
+    background: #eff2ea;
+    border: 1px solid #c8d1b5;
     border-radius: 6px;
     padding: 20px 22px;
   }
@@ -279,7 +286,7 @@
     padding-top: 16px;
     border-top: 1px solid var(--line);
     font-size: 12.5px;
-    color: #9aa8b4;
+    color: #939393;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -311,7 +318,7 @@
         <div>
           <div class="q">Auf welcher Verwaltungsebene ist der Kunde – Bund, Land oder Kommune?</div>
           <div class="a">Bundesclient ist ausschließlich für Bundesbehörden relevant. Länder/Kommunen haben
-          eigene Client-Standards – Abschnitt 2 dann überspringen.</div>
+          eigene Client-Standards – Abschnitt 3 dann überspringen.</div>
         </div>
       </div>
       <div class="leitfrage">
@@ -346,22 +353,30 @@
           von Wirtschaftlichkeit oder Funktionsumfang. Immer zuerst abfragen.</div>
         </div>
       </div>
+      <div class="leitfrage">
+        <div class="qnum">6</div>
+        <div>
+          <div class="q">Ist der Kunde eine Hochschule oder sonstige Bildungseinrichtung?</div>
+          <div class="a">Dann gelten Microsoft Academic-Lizenzen (A1/A3/A5) statt der Enterprise-Preise (E3/E5) –
+          ca. 80–90&nbsp;% günstiger. Die E-Preise in Abschnitt 6 dann nicht verwenden, siehe Hinweis dort.</div>
+        </div>
+      </div>
     </div>
   </section>
 
   <section>
-    <h2><span class="num">2</span>Zwei Ebenen, eine Entscheidung</h2>
+    <h2><span class="num">2</span>Zwei getrennte Entscheidungsfelder</h2>
     <div class="lead">
-      Bundesclient und Kollaborationssuite sind <b>keine Alternativen, sondern unterschiedliche Ebenen</b> des
-      digitalen Arbeitsplatzes: Ebene&nbsp;1 liefert die standardisierte Geräte- und Zugriffsschicht. Darauf läuft
-      als Ebene&nbsp;2 die eigentliche Produktivitäts- und Kollaborationssuite – hier stehen mit Microsoft&nbsp;365,
-      Delos Cloud und openDesk drei Optionen zur Wahl. Die Entscheidung zwischen ihnen ist primär eine Frage des
-      Schutzbedarfs der Daten, nicht des Endgeräts.
+      Bundesclient und Kollaborationssuite sind <b>zwei unabhängige Entscheidungen, nicht Basis und Aufbau</b>:
+      Die Wahl einer Kollaborationssuite (Microsoft&nbsp;365, Delos Cloud oder openDesk) setzt keinen Bundesclient
+      voraus – er ist für Bundesbehörden <b>eine mögliche Option</b> zur Standardisierung der Geräte- und
+      Zugriffsschicht, keine zwingende Voraussetzung. Beide Entscheidungen laufen parallel und lassen sich
+      unabhängig voneinander treffen.
     </div>
   </section>
 
   <section>
-    <h2><span class="num">3</span>Ebene 1 – Die Basis: Bundesclient</h2>
+    <h2><span class="num">3</span>Option: Bundesclient (Geräte-/Zugriffsschicht)</h2>
     <div class="cards" style="grid-template-columns: 1fr;">
       <div class="card client">
         <div class="scope-flag">Gilt nur für Bundesbehörden</div>
@@ -369,23 +384,26 @@
         <h3>Bundesclient</h3>
         <p>Standardisierte IT-Arbeitsplatzarchitektur des Bundes, verantwortet u.&nbsp;a. durch das ITZBund im
         Auftrag des BMI/BMF. Definiert einheitliche Hard-/Software-Pakete, Gerätemanagement und Betriebsprozesse
-        für Bundesbehörden – unabhängig davon, welche Kollaborationssuite darauf genutzt wird.</p>
+        für Bundesbehörden – eine Option neben ressorteigenen oder individuellen Client-Lösungen, keine
+        Vorbedingung für eine bestimmte Kollaborationssuite.</p>
         <ul>
           <li class="pro">Standardisierung senkt Betriebs- &amp; Supportkosten, reduziert Komplexität im Rollout</li>
           <li class="pro">Einheitlicher Zugriff auf Querschnitts- &amp; Fachverfahren ressortübergreifend</li>
-          <li class="con">Kein Ersatz für eine Kollaborationssuite – bildet nur die Basisschicht (OS,
-          Gerätemanagement, Zugriff)</li>
+          <li class="con">Kein Ersatz für eine Kollaborationssuite und keine Voraussetzung dafür – eigenständige
+          Entscheidung auf Geräte-/Betriebsebene</li>
         </ul>
         <div class="relevance"><b>Beratungsrelevanz:</b> Bei Landes-/Kommunalkunden entfällt dieser Punkt komplett
         – dort keine Zeit im Gespräch investieren. Bei Bundeskunden: Client-Standardisierung und
-        Suite-Entscheidung sind getrennte Projektstränge, können parallel laufen.</div>
+        Suite-Entscheidung sind getrennte, unabhängige Projektstränge – eine Behörde kann sich für Bundesclient
+        entscheiden und trotzdem bei M365 bleiben, oder umgekehrt Bundesclient ablehnen und dennoch zu Delos
+        Cloud/openDesk wechseln.</div>
         <div class="source-link">Quelle &amp; mehr: <a href="https://www.itzbund.de" target="_blank" rel="noopener">itzbund.de</a></div>
       </div>
     </div>
   </section>
 
   <section>
-    <h2><span class="num">4</span>Ebene 2 – Die Kollaborationssuite: drei Optionen</h2>
+    <h2><span class="num">4</span>Option: Kollaborationssuite – drei Varianten</h2>
     <div class="cards">
       <div class="card">
         <div class="tag">Marktstandard</div>
@@ -415,8 +433,8 @@
         </ul>
         <div class="relevance"><b>Beratungsrelevanz:</b> Der naheliegende Vorschlag für Kunden, die schon mit M365
         arbeiten und Souveränität brauchen, ohne Nutzeroberfläche/Trainings neu aufzusetzen. Offener Punkt im
-        Gespräch: Verfügbarkeitstermin und Endkundenpreis sind noch nicht verbindlich zugesagt – als
-        Erwartungsmanagement klar benennen.</div>
+        Gespräch: Das kolportierte Preismodell (≈15&nbsp;% Aufschlag auf M365-Liste, Stand Feb. 2025) ist nicht
+        final bestätigt – als vorläufige Indikation kennzeichnen, nicht als Zusage.</div>
         <div class="source-link">Quelle &amp; mehr: <a href="https://news.microsoft.com/de-de/erste-souveraene-cloud-plattform-fuer-die-deutsche-verwaltung-auf-der-zielgeraden/" target="_blank" rel="noopener">news.microsoft.com – Pressemitteilung</a></div>
       </div>
       <div class="card sovereign">
@@ -456,7 +474,8 @@
       <tr>
         <td class="criterion">Funktionsumfang &amp; Reife</td>
         <td>Sehr hoch, Marktstandard, breites Ökosystem (inkl. Copilot)</td>
-        <td>Vergleichbar mit M365 E3-Umfang; Rollout schrittweise, noch nicht alle Dienste verfügbar</td>
+        <td>Vergleichbar mit Office 365 E3-Umfang (reine Kollaboration, kein Geräte-/OS-Management); Rollout
+        schrittweise, noch nicht alle Dienste verfügbar</td>
         <td>Solide Basis (Mail, Office, Chat, Video, Projekt), Modulverbund aus 9 Open-Source-Komponenten;
         Funktionslücken ggü. M365</td>
       </tr>
@@ -480,42 +499,62 @@
   </section>
 
   <section class="pricing-box">
-    <h2><span class="num" style="background:#8a7638;">6</span>Pricing-Indikation (Orientierungswerte)</h2>
+    <h2><span class="num" style="background:#5d630b;">6</span>Pricing-Indikation (Orientierungswerte)</h2>
     <div class="price-grid">
       <div class="price-col">
-        <div class="label">M365 E3 (List, Jahresabo)</div>
-        <div class="value">≈ 26 €<span> / Nutzer / Monat</span></div>
-        <div class="note">zzgl. USt. · Commercial-Listenpreis</div>
+        <div class="label">Office 365 E3 (Kollaboration)</div>
+        <div class="value">26,27 €<span> / Nutzer / Monat</span></div>
+        <div class="note">zzgl. MwSt. · Jahresabo · Listenpreis microsoft.com. Funktional vergleichbar mit Delos
+        Cloud/openDesk-Umfang</div>
       </div>
       <div class="price-col">
-        <div class="label">M365 E5 (List, Jahresabo)</div>
-        <div class="value">≈ 41 €<span> / Nutzer / Monat</span></div>
-        <div class="note">zzgl. USt. · Commercial-Listenpreis</div>
+        <div class="label">Office 365 E5 (Kollaboration)</div>
+        <div class="value">41,42 €<span> / Nutzer / Monat</span></div>
+        <div class="note">zzgl. MwSt. · Jahresabo · Listenpreis microsoft.com</div>
+      </div>
+      <div class="price-col">
+        <div class="label">Microsoft 365 E3 / E5</div>
+        <div class="value" style="font-size:19px;">37,78 € / 58,13 €</div>
+        <div class="note">zzgl. MwSt. · Jahresabo. Bündelt zusätzlich Windows 11 Enterprise + Intune – nur
+        relevant, wenn der Bundesclient die Geräteverwaltung nicht bereits übernimmt</div>
       </div>
       <div class="price-col">
         <div class="label">Delos Cloud</div>
-        <div class="value">Offener Punkt</div>
-        <div class="note">Abo-Modell analog M365 erwartet, aber noch nicht flächendeckend beziffert – im
-        Kundengespräch aktiv als offenes Thema markieren, nicht verschweigen</div>
+        <div class="value">≈ +15 %</div>
+        <div class="note">Aufschlag auf den deutschen Microsoft-Listenpreis – Vorschlag von Delos Cloud, Stand
+        Februar 2025. Ob dies die finalen Konditionen sind, ist offen; im Kundengespräch als vorläufig
+        kennzeichnen</div>
       </div>
       <div class="price-col">
-        <div class="label">openDesk</div>
+        <div class="label">openDesk Community</div>
         <div class="value">0 €<span> Lizenz</span></div>
-        <div class="note">Open Source (Apache 2.0); Kosten entstehen für Betrieb, Hosting, Integration &amp;
-        Support</div>
+        <div class="note">Open Source (Apache 2.0), Eigenbetrieb ohne Support – Kosten entstehen für Hosting &amp;
+        Betrieb</div>
+      </div>
+      <div class="price-col">
+        <div class="label">openDesk Enterprise</div>
+        <div class="value">Offener Punkt</div>
+        <div class="note">SaaS via StackIT oder Self-Hosting mit Support (B1 Systems, Rahmenvertrag seit 2024) –
+        Preis nicht öffentlich, im Gespräch aktiv adressieren</div>
       </div>
     </div>
     <div class="footnote">
       Hinweis: Listenpreise dienen nur der Größenordnung. Für Bundes-/Landesbehörden gelten i.&nbsp;d.&nbsp;R.
       abweichende Konditionen aus Rahmenverträgen (z.&nbsp;B. EVB-IT), die nicht öffentlich beziffert sind.
-      Microsoft hat zudem für Juli 2026 eine Preisanpassung von ca. 9–12&nbsp;% auf viele Commercial- und
-      Government-Pläne angekündigt. Reale Gesamtkosten hängen zusätzlich von Migrations-, Betriebs- und
-      Schulungsaufwänden ab und sind separat zu kalkulieren.
+      Microsoft hat die hier gezeigten Preise zum 1.&nbsp;Juli 2026 um ca. 9–13&nbsp;% angehoben (die Werte oben
+      sind bereits die aktuellen, erhöhten Preise). Reale Gesamtkosten hängen zusätzlich von Migrations-,
+      Betriebs- und Schulungsaufwänden ab und sind separat zu kalkulieren.
+    </div>
+    <div class="footnote" style="margin-top:8px;">
+      <b>Bei Hochschulkunden:</b> Die obigen E3/E5-Preise gelten nicht. Microsoft Academic-Lizenzen liegen bei
+      ca. 2,50–3,25&nbsp;US-$/Nutzer/Monat (A3) bzw. 6–8&nbsp;US-$/Nutzer/Monat (A5) – 80–90&nbsp;% unter den
+      Enterprise-Preisen. A1 ist für Studierende in der Regel kostenlos. Delos Cloud und openDesk haben nach
+      aktuellem Kenntnisstand kein gesondertes Academic-Preismodell.
     </div>
   </section>
 
   <section class="callout">
-    <h2><span class="num" style="background:#1a7a4c;">7</span>Handlungsspielraum: Was ist wann möglich?</h2>
+    <h2><span class="num" style="background:var(--green);">7</span>Handlungsspielraum: Was ist wann möglich?</h2>
     <div class="horizon-box">
       <div class="horizon-col">
         <div class="h-label">Sofort (0–6 Monate)</div>
@@ -562,7 +601,9 @@
       <div class="source-group">
         <div class="source-group-title">Microsoft 365</div>
         <ul class="source-list">
-          <li><a href="https://www.microsoft.com/de-de/microsoft-365/enterprise/office-365-plans-and-pricing" target="_blank" rel="noopener">Microsoft – Pläne &amp; Preise Microsoft 365 Enterprise</a></li>
+          <li><a href="https://www.microsoft.com/de-de/microsoft-365/enterprise/office-365-plans-and-pricing" target="_blank" rel="noopener">Microsoft – Office 365 Pläne &amp; Preise</a></li>
+          <li><a href="https://www.microsoft.com/de-de/microsoft-365/enterprise/microsoft-365-plans-and-pricing" target="_blank" rel="noopener">Microsoft – Microsoft 365 Enterprise Pläne &amp; Preise</a></li>
+          <li><a href="https://www.microsoft.com/de-de/education/products/office-365-a1-plus" target="_blank" rel="noopener">Microsoft – Academic-Lizenzen (A1/A3/A5) für Bildungseinrichtungen</a></li>
           <li><a href="https://t3n.de/news/?p=1720292" target="_blank" rel="noopener">t3n – Preiserhöhung Microsoft 365 ab Juli 2026</a></li>
         </ul>
       </div>
@@ -571,12 +612,14 @@
         <ul class="source-list">
           <li><a href="https://news.microsoft.com/de-de/erste-souveraene-cloud-plattform-fuer-die-deutsche-verwaltung-auf-der-zielgeraden/" target="_blank" rel="noopener">Microsoft Newsroom – Pressemitteilung Delos Cloud/Microsoft/Arvato</a></li>
           <li><a href="https://www.arvato-systems.com/industries/public/delos-cloud" target="_blank" rel="noopener">Arvato Systems – Delos Cloud im öffentlichen Sektor</a></li>
+          <li><a href="https://background.tagesspiegel.de/smart-city-und-stadtentwicklung/briefing/was-die-delos-cloud-kostet-und-warum-kommunen-early-adopter-werden-koennten" target="_blank" rel="noopener">Tagesspiegel Background – Was die Delos Cloud kostet (Preismodell-Vorschlag, 02/2025)</a></li>
         </ul>
       </div>
       <div class="source-group">
         <div class="source-group-title">openDesk / ZenDiS</div>
         <ul class="source-list">
           <li><a href="https://www.opendesk.eu/" target="_blank" rel="noopener">opendesk.eu – offizielle Seite (ZenDiS)</a></li>
+          <li><a href="https://docs.opendesk.eu/operations/enterprise/" target="_blank" rel="noopener">docs.opendesk.eu – Community vs. Enterprise Edition</a></li>
           <li><a href="https://vergabeblog.de/?p=74048" target="_blank" rel="noopener">Vergabeblog – ZenDiS: Strategische Neuausrichtung (2026)</a></li>
         </ul>
       </div>
