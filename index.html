@@ -115,6 +115,15 @@
   .card li { margin-bottom: 6px; }
   .card .pro { color: #1a7a4c; }
   .card .con { color: #b04a2a; }
+  .source-link {
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--line);
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+  .source-link a { color: var(--blue); text-decoration: none; }
+  .source-link a:hover { text-decoration: underline; }
 
   table.compare {
     width: 100%;
@@ -177,6 +186,25 @@
   .callout ol { margin: 0; padding-left: 20px; }
   .callout li { margin-bottom: 10px; }
 
+  .sources-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 32px;
+  }
+  @media (max-width: 720px) {
+    .sources-grid { grid-template-columns: 1fr; }
+  }
+  .source-group-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .source-list { margin: 0; padding-left: 18px; font-size: 14px; }
+  .source-list li { margin-bottom: 4px; }
+  .source-list a { color: var(--blue); text-decoration: none; }
+  .source-list a:hover { text-decoration: underline; }
+
   footer {
     margin-top: 48px;
     padding-top: 16px;
@@ -195,7 +223,7 @@
 
   <div class="kicker">Handout · Entwurf v0.1</div>
   <h1>Souveräner Arbeitsplatz in der öffentlichen Verwaltung</h1>
-  <div class="subtitle">Microsoft 365, Bundesclient und souveräne Varianten im Überblick</div>
+  <div class="subtitle">Zugriffsebene, Marktstandard und souveräne Varianten im Überblick</div>
   <div class="header-rule"></div>
 
   <div class="lead">
@@ -207,20 +235,39 @@
   </div>
 
   <section>
-    <h2><span class="num">1</span>Die drei Bausteine des digitalen Arbeitsplatzes</h2>
-    <div class="cards">
+    <h2><span class="num">1</span>Zwei Ebenen, eine Entscheidung</h2>
+    <div class="lead">
+      Bundesclient und Kollaborationssuite sind <b>keine Alternativen, sondern unterschiedliche Ebenen</b> des
+      digitalen Arbeitsplatzes: Ebene&nbsp;1 liefert die standardisierte Geräte- und Zugriffsschicht. Darauf läuft
+      als Ebene&nbsp;2 die eigentliche Produktivitäts- und Kollaborationssuite – hier stehen mit Microsoft&nbsp;365,
+      Delos Cloud und openDesk drei Optionen zur Wahl. Die Entscheidung zwischen ihnen ist primär eine Frage des
+      Schutzbedarfs der Daten, nicht des Endgeräts.
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">2</span>Ebene 1 – Die Basis: Bundesclient</h2>
+    <div class="cards" style="grid-template-columns: 1fr;">
       <div class="card client">
         <div class="tag">Client-Architektur</div>
         <h3>Bundesclient</h3>
-        <p>Standardisierte IT-Arbeitsplatzarchitektur des Bundes (verantwortet u.&nbsp;a. durch ITZBund/BMI).
-        Definiert einheitliche Hard-/Software-Pakete und Betriebsprozesse für Bundesbehörden.</p>
+        <p>Standardisierte IT-Arbeitsplatzarchitektur des Bundes, verantwortet u.&nbsp;a. durch das ITZBund im
+        Auftrag des BMI/BMF. Definiert einheitliche Hard-/Software-Pakete, Gerätemanagement und Betriebsprozesse
+        für Bundesbehörden – unabhängig davon, welche Kollaborationssuite darauf genutzt wird.</p>
         <ul>
-          <li class="pro">Standardisierung senkt Betriebs- &amp; Supportkosten</li>
-          <li class="pro">Einheitlicher Zugriff auf Querschnitts- &amp; Fachverfahren</li>
+          <li class="pro">Standardisierung senkt Betriebs- &amp; Supportkosten, reduziert Komplexität im Rollout</li>
+          <li class="pro">Einheitlicher Zugriff auf Querschnitts- &amp; Fachverfahren ressortübergreifend</li>
           <li class="con">Kein Ersatz für eine Kollaborationssuite – bildet nur die Basisschicht (OS,
           Gerätemanagement, Zugriff)</li>
         </ul>
+        <div class="source-link">Quelle &amp; mehr: <a href="https://www.itzbund.de" target="_blank" rel="noopener">itzbund.de</a></div>
       </div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">3</span>Ebene 2 – Die Kollaborationssuite: drei Optionen</h2>
+    <div class="cards">
       <div class="card">
         <div class="tag">Marktstandard</div>
         <h3>Microsoft 365 (Public Cloud)</h3>
@@ -232,34 +279,37 @@
           <li class="con">Datenverarbeitung/-zugriff potenziell CLOUD-Act-exponiert – für höhere Schutzbedarfe
           kritisch</li>
         </ul>
+        <div class="source-link">Quelle &amp; mehr: <a href="https://www.microsoft.com/de-de/microsoft-365/enterprise/office-365-plans-and-pricing" target="_blank" rel="noopener">microsoft.com – Pläne &amp; Preise</a></div>
       </div>
       <div class="card sovereign">
-        <div class="tag">Souveräne Alternativen</div>
-        <h3>Delos Cloud &amp; openDesk</h3>
-        <p><b>Delos Cloud:</b> M365-Technologie auf souverän betriebener Infrastruktur in Deutschland (Delos Cloud
-        GmbH/Arvato/Microsoft als Technologielieferant).<br>
-        <b>openDesk:</b> Open-Source-Suite von ZenDiS als vollständige M365-Alternative.</p>
+        <div class="tag">Souverän · Microsoft-basiert</div>
+        <h3>Delos Cloud</h3>
+        <p>M365-Technologie auf souverän betriebener Infrastruktur in Deutschland (Delos Cloud GmbH, betrieben
+        mit Arvato Systems; Microsoft als Technologielieferant).</p>
         <ul>
           <li class="pro">Datenhaltung &amp; Betrieb in DE, BSI-Anforderungen adressiert</li>
-          <li class="con">Delos Cloud: Rollout/Zertifizierung (u.&nbsp;a. VS-NfD) noch im Aufbau</li>
-          <li class="con">openDesk: geringere Funktionsreife/Nutzerakzeptanz als M365</li>
+          <li class="pro">Technisch/operativ/rechtlich von Microsoft getrennt</li>
+          <li class="con">Rollout/Zertifizierung (u.&nbsp;a. VS-NfD) noch im Aufbau</li>
         </ul>
+        <div class="source-link">Quelle &amp; mehr: <a href="https://news.microsoft.com/de-de/erste-souveraene-cloud-plattform-fuer-die-deutsche-verwaltung-auf-der-zielgeraden/" target="_blank" rel="noopener">news.microsoft.com – Pressemitteilung</a></div>
+      </div>
+      <div class="card sovereign">
+        <div class="tag">Souverän · Open Source</div>
+        <h3>openDesk</h3>
+        <p>Open-Source-Kollaborationssuite von ZenDiS, integriert neun bestehende OS-Komponenten (u.&nbsp;a.
+        Nextcloud, Open-Xchange, Collabora, Element) unter einer gemeinsamen Oberfläche.</p>
+        <ul>
+          <li class="pro">Vollständig europäisches Open-Source-Stack, Betrieb frei wählbar</li>
+          <li class="pro">Lizenzkostenfrei (Apache 2.0)</li>
+          <li class="con">Geringere Funktionsreife/Nutzerakzeptanz als M365, höherer Change-Management-Aufwand</li>
+        </ul>
+        <div class="source-link">Quelle &amp; mehr: <a href="https://www.opendesk.eu/" target="_blank" rel="noopener">opendesk.eu</a></div>
       </div>
     </div>
   </section>
 
   <section>
-    <h2><span class="num">2</span>Einordnung: Wie hängen die drei Bausteine zusammen?</h2>
-    <div class="lead" style="margin-bottom:0;">
-      Bundesclient und Kollaborationssuite sind <b>keine Alternativen, sondern unterschiedliche Ebenen</b>: Der
-      Bundesclient liefert die standardisierte Geräte- und Zugriffsschicht: darauf läuft entweder Microsoft 365,
-      Delos Cloud oder openDesk als Produktivitäts- und Kollaborationsebene. Die Entscheidung für eine Variante
-      ist primär eine Frage des Schutzbedarfs der Daten, nicht des Endgeräts.
-    </div>
-  </section>
-
-  <section>
-    <h2><span class="num">3</span>Vergleich der Kollaborations-Varianten</h2>
+    <h2><span class="num">4</span>Vergleich der Kollaborations-Varianten</h2>
     <div class="table-scroll">
     <table class="compare">
       <tr>
@@ -347,6 +397,49 @@
       <li><b>Kostenbild vervollständigen:</b> Für belastbare Pricing-Aussagen sind Rahmenvertragskonditionen und
       Betriebskosten-Szenarien in einem Folgeschritt zu ermitteln.</li>
     </ol>
+  </section>
+
+  <section>
+    <h2><span class="num">5</span>Quellen &amp; weiterführende Informationen</h2>
+    <div class="sources-grid">
+      <div class="source-group">
+        <div class="source-group-title">Bundesclient / ITZBund</div>
+        <ul class="source-list">
+          <li><a href="https://www.itzbund.de" target="_blank" rel="noopener">ITZBund – offizieller Webauftritt</a></li>
+        </ul>
+      </div>
+      <div class="source-group">
+        <div class="source-group-title">Souveräner Arbeitsplatz / DVS (BMI)</div>
+        <ul class="source-list">
+          <li><a href="https://vergabeblog.de/2022-09-15/souveraener-arbeitsplatz-fuer-die-oeffentliche-verwaltung/" target="_blank" rel="noopener">Vergabeblog – Auftakt „Souveräner Arbeitsplatz“ (BMI)</a></li>
+        </ul>
+      </div>
+      <div class="source-group">
+        <div class="source-group-title">Microsoft 365</div>
+        <ul class="source-list">
+          <li><a href="https://www.microsoft.com/de-de/microsoft-365/enterprise/office-365-plans-and-pricing" target="_blank" rel="noopener">Microsoft – Pläne &amp; Preise Microsoft 365 Enterprise</a></li>
+          <li><a href="https://t3n.de/news/?p=1720292" target="_blank" rel="noopener">t3n – Preiserhöhung Microsoft 365 ab Juli 2026</a></li>
+        </ul>
+      </div>
+      <div class="source-group">
+        <div class="source-group-title">Delos Cloud</div>
+        <ul class="source-list">
+          <li><a href="https://news.microsoft.com/de-de/erste-souveraene-cloud-plattform-fuer-die-deutsche-verwaltung-auf-der-zielgeraden/" target="_blank" rel="noopener">Microsoft Newsroom – Pressemitteilung Delos Cloud/Microsoft/Arvato</a></li>
+          <li><a href="https://www.arvato-systems.com/industries/public/delos-cloud" target="_blank" rel="noopener">Arvato Systems – Delos Cloud im öffentlichen Sektor</a></li>
+        </ul>
+      </div>
+      <div class="source-group">
+        <div class="source-group-title">openDesk / ZenDiS</div>
+        <ul class="source-list">
+          <li><a href="https://www.opendesk.eu/" target="_blank" rel="noopener">opendesk.eu – offizielle Seite (ZenDiS)</a></li>
+          <li><a href="https://vergabeblog.de/?p=74048" target="_blank" rel="noopener">Vergabeblog – ZenDiS: Strategische Neuausrichtung (2026)</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footnote" style="margin-top:16px;">
+      Stand der Recherche: September 2026. Angaben zu Preisen, Rollout-Status und Zertifizierungen ändern sich
+      laufend – vor Verwendung in Entscheidungsvorlagen bitte gegen die verlinkten Primärquellen aktualisieren.
+    </div>
   </section>
 
   <footer>
