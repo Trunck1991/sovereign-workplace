@@ -509,7 +509,9 @@
         </ul>
         <div class="relevance"><b>Beratungsrelevanz:</b> Standardantwort bei normalem Schutzbedarf und laufendem
         Betrieb. <b>Wird schwierig zu vertreten, sobald der Kunde selbst „hoher Schutzbedarf" oder eine
-        Souveränitätsstrategie ins Gespräch bringt</b> – dann aktiv auf Delos Cloud/openDesk überleiten.</div>
+        Souveränitätsstrategie ins Gespräch bringt</b> – dann aktiv auf Delos Cloud/openDesk überleiten. Fragt der
+        Kunde nach KI-Agenten/Copilot-Integration, ist seit Mai 2026 M365 E7 die naheliegende Antwort (siehe
+        Abschnitt 6) – bringt aber zusätzliche, verbrauchsbasierte Kosten mit.</div>
         <div class="source-link">Quelle &amp; mehr: <a href="https://www.microsoft.com/de-de/microsoft-365/enterprise/office-365-plans-and-pricing" target="_blank" rel="noopener">microsoft.com – Pläne &amp; Preise</a></div>
       </div>
       <div class="card sovereign">
@@ -610,6 +612,13 @@
         relevant, wenn der Bundesclient die Geräteverwaltung nicht bereits übernimmt</b></div>
       </div>
       <div class="price-col">
+        <div class="label">Microsoft 365 E7 (Premium/KI)</div>
+        <div class="value">91,92 €<span> / Nutzer / Monat</span></div>
+        <div class="note">zzgl. MwSt. · Jahresabo · Listenpreis microsoft.com. Bündelt E5 + Copilot + Agent 365 +
+        Entra Suite. <b>Agent-365-Nutzung wird zusätzlich verbrauchsbasiert abgerechnet</b> – seit 1. Mai 2026
+        verfügbar, CSP-Einführungsrabatt 10–15&nbsp;% bis Ende 2026</div>
+      </div>
+      <div class="price-col">
         <div class="label">Delos Cloud</div>
         <div class="value">≈ +15 %</div>
         <div class="note">Aufschlag auf den deutschen Microsoft-Listenpreis – Vorschlag von Delos Cloud, Stand
@@ -685,6 +694,7 @@
           <option value="o365e5">Office 365 E5 (41,42 €)</option>
           <option value="m365e3">Microsoft 365 E3 (37,78 €)</option>
           <option value="m365e5">Microsoft 365 E5 (58,13 €)</option>
+          <option value="m365e7">Microsoft 365 E7 (91,92 €)</option>
         </select>
       </label>
     </div>
@@ -749,7 +759,8 @@
         <div class="source-group-title">Microsoft 365</div>
         <ul class="source-list">
           <li><a href="https://www.microsoft.com/de-de/microsoft-365/enterprise/office-365-plans-and-pricing" target="_blank" rel="noopener">Microsoft – Office 365 Pläne &amp; Preise</a></li>
-          <li><a href="https://www.microsoft.com/de-de/microsoft-365/enterprise/microsoft-365-plans-and-pricing" target="_blank" rel="noopener">Microsoft – Microsoft 365 Enterprise Pläne &amp; Preise</a></li>
+          <li><a href="https://www.microsoft.com/de-de/microsoft-365/enterprise/microsoft-365-plans-and-pricing" target="_blank" rel="noopener">Microsoft – Microsoft 365 Enterprise Pläne &amp; Preise (E3/E5/E7)</a></li>
+          <li><a href="https://www.software-express.de/hersteller/microsoft/microsoft-365/enterprise-e7/" target="_blank" rel="noopener">software-express.de – Microsoft 365 E7: Funktionen, Agent 365, Einführungsrabatte</a></li>
           <li><a href="https://www.microsoft.com/de-de/education/products/office-365-a1-plus" target="_blank" rel="noopener">Microsoft – Academic-Lizenzen (A1/A3/A5) für Bildungseinrichtungen</a></li>
           <li><a href="https://www.software-express.de/hersteller/microsoft/microsoft-365/education-a3/" target="_blank" rel="noopener">software-express.de – Microsoft 365 Education A3/A5 Preise (EUR, CSP-Reseller)</a></li>
           <li><a href="https://www.software-express.de/hersteller/microsoft/microsoft-365/f1/" target="_blank" rel="noopener">software-express.de – Microsoft 365 F1/F3 Frontline-Preise (EUR, CSP-Reseller)</a></li>
@@ -789,9 +800,9 @@
 
 <script>
 (function () {
-  var PRICES = { o365e3: 26.27, o365e5: 41.42, m365e3: 37.78, m365e5: 58.13 };
+  var PRICES = { o365e3: 26.27, o365e5: 41.42, m365e3: 37.78, m365e5: 58.13, m365e7: 91.92 };
   var DELOS_SURCHARGE = 0.15;
-  var BASE_LABELS = { o365e3: 'O365 E3', o365e5: 'O365 E5', m365e3: 'M365 E3', m365e5: 'M365 E5' };
+  var BASE_LABELS = { o365e3: 'O365 E3', o365e5: 'O365 E5', m365e3: 'M365 E3', m365e5: 'M365 E5', m365e7: 'M365 E7' };
 
   function fmt(n) {
     return n.toLocaleString('de-DE', { maximumFractionDigits: 0, minimumFractionDigits: 0 });
@@ -822,6 +833,7 @@
       rows.push({ label: 'Office 365 E5', perUser: PRICES.o365e5 });
       rows.push({ label: 'Microsoft 365 E3', perUser: PRICES.m365e3 });
       rows.push({ label: 'Microsoft 365 E5', perUser: PRICES.m365e5 });
+      rows.push({ label: 'Microsoft 365 E7 (Premium/KI)', perUser: PRICES.m365e7, note: 'zzgl. Agent-365-Verbrauchskosten' });
       rows.push({
         label: 'Delos Cloud (≈+15 % auf ' + BASE_LABELS[delosBaseKey] + ')',
         perUser: delosPrice,
