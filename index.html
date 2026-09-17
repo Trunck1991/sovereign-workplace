@@ -203,6 +203,69 @@
   }
   .horizon-col ul { margin: 0; padding-left: 16px; font-size: 13.5px; }
   .horizon-col li { margin-bottom: 6px; }
+
+  .calc-box {
+    background: var(--hellgrau);
+    border: 1px solid var(--mittelgrau);
+    border-top: 4px solid var(--dunkelblau);
+    border-radius: 6px;
+    padding: 20px 22px;
+  }
+  .calc-box h2 { border: none; padding: 0; margin-bottom: 14px; }
+  .calc-controls {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    align-items: end;
+    margin-bottom: 18px;
+    padding-bottom: 18px;
+    border-bottom: 1px dashed var(--mittelgrau);
+  }
+  @media (max-width: 720px) {
+    .calc-controls { grid-template-columns: 1fr 1fr; }
+  }
+  .calc-field { display: flex; flex-direction: column; }
+  .calc-field-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--dunkelgrau);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .calc-field input[type="number"], .calc-field select {
+    font-family: inherit;
+    font-size: 14px;
+    padding: 7px 9px;
+    border: 1px solid var(--mittelgrau);
+    border-radius: 4px;
+    background: #fff;
+    color: var(--ink);
+  }
+  .calc-radio-row { display: flex; flex-direction: column; gap: 4px; font-size: 13px; }
+  .calc-radio-row label { display: flex; align-items: center; gap: 6px; cursor: pointer; }
+  .calc-results {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  @media (max-width: 720px) {
+    .calc-results { grid-template-columns: 1fr; }
+  }
+  .calc-row {
+    background: #fff;
+    border: 1px solid var(--mittelgrau);
+    border-radius: 4px;
+    padding: 10px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .calc-row-label { font-size: 13.5px; font-weight: 700; color: var(--navy); }
+  .calc-row-value { font-size: 17px; font-weight: 800; color: var(--dunkelblau); white-space: nowrap; }
+  .calc-row-note { flex-basis: 100%; font-size: 11.5px; color: var(--dunkelgrau); }
   .source-link {
     margin-top: 12px;
     padding-top: 10px;
@@ -569,8 +632,49 @@
     </div>
   </section>
 
+  <section class="calc-box">
+    <h2><span class="num" style="background:var(--dunkelblau);">7</span>Kostenrechner (Orientierung)</h2>
+    <div class="calc-controls">
+      <label class="calc-field">
+        <span class="calc-field-label">Anzahl Nutzer</span>
+        <input type="number" id="calcUsers" value="100" min="1" step="1">
+      </label>
+      <div class="calc-field">
+        <span class="calc-field-label">Kundentyp</span>
+        <div class="calc-radio-row">
+          <label><input type="radio" name="calcType" value="behoerde" checked> Behörde (E-Lizenzen)</label>
+          <label><input type="radio" name="calcType" value="hochschule"> Hochschule (A-Lizenzen)</label>
+        </div>
+      </div>
+      <div class="calc-field">
+        <span class="calc-field-label">Zeitraum</span>
+        <div class="calc-radio-row">
+          <label><input type="radio" name="calcPeriod" value="monat" checked> pro Monat</label>
+          <label><input type="radio" name="calcPeriod" value="jahr"> pro Jahr</label>
+        </div>
+      </div>
+      <label class="calc-field" id="calcDelosBaseWrap">
+        <span class="calc-field-label">Delos-Cloud-Basis für Aufschlag</span>
+        <select id="calcDelosBase">
+          <option value="o365e3" selected>Office 365 E3 (26,27 €)</option>
+          <option value="o365e5">Office 365 E5 (41,42 €)</option>
+          <option value="m365e3">Microsoft 365 E3 (37,78 €)</option>
+          <option value="m365e5">Microsoft 365 E5 (58,13 €)</option>
+        </select>
+      </label>
+    </div>
+    <div class="calc-results" id="calcResults"></div>
+    <div class="footnote" style="margin-top:14px;">
+      Alle Werte sind Listenpreis-Indikationen ohne Rahmenvertragsrabatte – siehe Hinweise in Abschnitt 6.
+      <b>Der Delos-Cloud-Aufschlag (≈15&nbsp;%) ist ein 2025 kolportierter Vorschlag, keine bestätigte
+      Kondition.</b> Academic-Preise sind in US-$ angegeben (keine veröffentlichte EUR-Preisliste gefunden) und
+      nur grob indikativ. Für openDesk sind ausschließlich Lizenzkosten kalkulierbar – Hosting-/Betriebs- und ggf.
+      Enterprise-Supportkosten sind projektspezifisch zu ermitteln.
+    </div>
+  </section>
+
   <section class="callout">
-    <h2><span class="num" style="background:var(--green);">7</span>Handlungsspielraum: Was ist wann möglich?</h2>
+    <h2><span class="num" style="background:var(--green);">8</span>Handlungsspielraum: Was ist wann möglich?</h2>
     <div class="horizon-box">
       <div class="horizon-col">
         <div class="h-label">Sofort (0–6 Monate)</div>
@@ -600,7 +704,7 @@
   </section>
 
   <section>
-    <h2><span class="num">8</span>Quellen &amp; weiterführende Informationen</h2>
+    <h2><span class="num">9</span>Quellen &amp; weiterführende Informationen</h2>
     <div class="sources-grid">
       <div class="source-group">
         <div class="source-group-title">Bundesclient / ITZBund</div>
@@ -653,5 +757,103 @@
   </footer>
 
 </div>
+
+<script>
+(function () {
+  var PRICES = { o365e3: 26.27, o365e5: 41.42, m365e3: 37.78, m365e5: 58.13 };
+  var DELOS_SURCHARGE = 0.15;
+  var BASE_LABELS = { o365e3: 'O365 E3', o365e5: 'O365 E5', m365e3: 'M365 E3', m365e5: 'M365 E5' };
+
+  function fmt(n) {
+    return n.toLocaleString('de-DE', { maximumFractionDigits: 0, minimumFractionDigits: 0 });
+  }
+
+  function calc() {
+    var usersEl = document.getElementById('calcUsers');
+    var resultsEl = document.getElementById('calcResults');
+    var delosWrap = document.getElementById('calcDelosBaseWrap');
+    if (!usersEl || !resultsEl) return;
+
+    var users = parseFloat(usersEl.value);
+    if (!users || users < 0) users = 0;
+    var type = document.querySelector('input[name="calcType"]:checked').value;
+    var period = document.querySelector('input[name="calcPeriod"]:checked').value;
+    var months = period === 'jahr' ? 12 : 1;
+    var periodLabel = period === 'jahr' ? '/Jahr gesamt' : '/Monat gesamt';
+
+    var rows = [];
+
+    if (type === 'behoerde') {
+      delosWrap.style.display = '';
+      var delosBaseKey = document.getElementById('calcDelosBase').value;
+      var delosBasePrice = PRICES[delosBaseKey];
+      var delosPrice = delosBasePrice * (1 + DELOS_SURCHARGE);
+
+      rows.push({ label: 'Office 365 E3', perUser: PRICES.o365e3 });
+      rows.push({ label: 'Office 365 E5', perUser: PRICES.o365e5 });
+      rows.push({ label: 'Microsoft 365 E3', perUser: PRICES.m365e3 });
+      rows.push({ label: 'Microsoft 365 E5', perUser: PRICES.m365e5 });
+      rows.push({
+        label: 'Delos Cloud (≈+15 % auf ' + BASE_LABELS[delosBaseKey] + ')',
+        perUser: delosPrice,
+        note: 'Vorläufige Indikation, keine bestätigte Kondition'
+      });
+      rows.push({
+        label: 'openDesk (Lizenz)',
+        perUser: 0,
+        note: 'Nur Lizenzkosten – zzgl. individueller Hosting-/Betriebskosten'
+      });
+    } else {
+      delosWrap.style.display = 'none';
+      rows.push({ label: 'Microsoft 365 A1', perUser: 0, note: 'i. d. R. kostenlos für Studierende' });
+      rows.push({
+        label: 'Microsoft 365 A3', rangeUsd: [2.50, 3.25],
+        note: 'US-$, keine offizielle EUR-Preisliste gefunden'
+      });
+      rows.push({
+        label: 'Microsoft 365 A5', rangeUsd: [6, 8],
+        note: 'US-$, keine offizielle EUR-Preisliste gefunden'
+      });
+      rows.push({ label: 'Delos Cloud', dash: true, note: 'Kein gesondertes Academic-Preismodell bekannt' });
+      rows.push({
+        label: 'openDesk (Lizenz)', perUser: 0,
+        note: 'Nur Lizenzkosten – zzgl. individueller Hosting-/Betriebskosten'
+      });
+    }
+
+    resultsEl.innerHTML = rows.map(function (r) {
+      var valueHtml, noteHtml;
+      if (r.dash) {
+        valueHtml = '–';
+        noteHtml = r.note;
+      } else if (r.rangeUsd) {
+        var lo = r.rangeUsd[0] * users * months;
+        var hi = r.rangeUsd[1] * users * months;
+        valueHtml = fmt(lo) + '–' + fmt(hi) + ' US-$';
+        noteHtml = r.note;
+      } else {
+        var total = r.perUser * users * months;
+        valueHtml = fmt(total) + ' €';
+        noteHtml = r.note || (r.perUser.toFixed(2).replace('.', ',') + ' €/Nutzer/Monat');
+      }
+      return '<div class="calc-row">' +
+        '<div class="calc-row-label">' + r.label + '</div>' +
+        '<div class="calc-row-value">' + valueHtml + '</div>' +
+        '<div class="calc-row-note">' + noteHtml + '</div>' +
+        '</div>';
+    }).join('');
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    calc();
+    document.getElementById('calcUsers').addEventListener('input', calc);
+    document.getElementById('calcDelosBase').addEventListener('change', calc);
+    var radios = document.querySelectorAll('input[name="calcType"], input[name="calcPeriod"]');
+    for (var i = 0; i < radios.length; i++) {
+      radios[i].addEventListener('change', calc);
+    }
+  });
+})();
+</script>
 </body>
 </html>
